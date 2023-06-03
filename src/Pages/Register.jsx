@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-export const Register = (props) => {
+export const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confimPass, setConfimPass] = useState("");
+  const navigate = useNavigate();
 
   const handleSumit = (e) => {
     e.preventDefault();
@@ -40,14 +42,15 @@ export const Register = (props) => {
           id="confimpass"
           name="confimpass"
         />
-        <button type="submit">Зареєструватись</button>
+        <button type="submit" onClick={() => navigate("/Main")}>
+          Зареєструватись
+        </button>
       </form>
-      <button
-        className="link-button"
-        onClick={() => props.onFormSwitch("login")}
-      >
+      <Link className="link" to="/">
         У мене існує акаунт
-      </button>
+      </Link>
     </div>
   );
 };
+
+export default Register;

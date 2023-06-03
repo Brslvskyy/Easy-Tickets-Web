@@ -41,8 +41,6 @@ button {
 
 }
 
-.link-button {
-  background: none;
+.link {
   color:grey;
-  text-decoration: underline;
 }

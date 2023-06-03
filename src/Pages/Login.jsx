@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-export const Login = (props) => {
+export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSumit = (e) => {
     e.preventDefault();
@@ -30,14 +32,16 @@ export const Login = (props) => {
           id="password"
           name="password"
         />
-        <button type="submit" /*onClick={}*/>Увійти</button>
+        <button type="submit" onClick={() => navigate("/Main")}>
+          Увійти
+        </button>
       </form>
-      <button
-        className="link-button"
-        onClick={() => props.onFormSwitch("register")}
-      >
+
+      <Link className="link" to="/Register">
         Зареєструватись
-      </button>
+      </Link>
     </div>
   );
 };
+
+export default Login;
